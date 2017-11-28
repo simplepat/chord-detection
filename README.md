@@ -1,37 +1,21 @@
-1. Clone the repository and navigate to the downloaded folder.
-	
-	```	
-		git clone https://github.com/udacity/dog-project.git
-		cd dog-project
-	```
-2. Download the [dog dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip).  Unzip the folder and place it in the repo, at location `path/to/dog-project/dogImages`. 
-3. Download the [human dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip).  Unzip the folder and place it in the repo, at location `path/to/dog-project/lfw`.  If you are using a Windows machine, you are encouraged to use [7zip](http://www.7-zip.org/) to extract the folder. 
-4. Donwload the [VGG-16 bottleneck features](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/DogVGG16Data.npz) for the dog dataset.  Place it in the repo, at location `path/to/dog-project/bottleneck_features`.
-5. Obtain the necessary Python packages, and switch Keras backend to Tensorflow.  
-	
-	For __Mac/OSX__:
-	```
-		conda env create -f requirements/aind-dog-mac.yml
-		source activate aind-dog
-		KERAS_BACKEND=tensorflow python -c "from keras import backend"
-	```
+Dataset downloads
+===================
 
-	For __Linux__:
-	```
-		conda env create -f requirements/aind-dog-linux.yml
-		source activate aind-dog
-		KERAS_BACKEND=tensorflow python -c "from keras import backend"
-	```
+The dataset used in this project is rather large. It is composed of the following files:
 
-	For __Windows__:
-	```
-		conda env create -f requirements/aind-dog-windows.yml
-		activate aind-dog
-		set KERAS_BACKEND=tensorflow
-		python -c "from keras import backend"
-	```
-6. Open the notebook and follow the instructions.
-	
-	```
-		jupyter notebook dog_app.ipynb
-	```
+> **Training data downloads**
+> 
+> - Index: http://ddmal.music.mcgill.ca/datasets/billboard/billboard-2.0-index.csv. As each song is identified by an integer, this file mainly serves as an index, pointing to the song's name and artist
+> - Audio features: http://ddmal.music.mcgill.ca/datasets/billboard/billboard-2.0-chordino.tar.gz. Each folder is the song's index, and it contains both two *.csv files containing all the chroma features for each of the song's time segment.
+> - Annotations/labels: http://ddmal.music.mcgill.ca/datasets/billboard/billboard-2.0.1-lab.tar.gz . Same organization as the features here, a folder with the song's index contains *.lab files (time segment + chord)
+
+The original download page: http://ddmal.music.mcgill.ca/research/billboard
+#### 
+> **Extra testing data downloads**
+> 
+> - The links to the chords annotations in *.lab format for this dataset is the following: http://www.isophonics.net/content/reference-annotations
+> - The extraction of the audio features has to be done manually using the album references provided here: http://www.isophonics.net/content/reference-annotations . 
+> - The features are extracted using the open-source NNLS Chroma plugin (https://code.soundsoftware.ac.uk/attachments/download/1691/nnls-chroma-1.1.tar.gz), plugged to the Sonic Visualizer software (http://www.sonicvisualiser.org/download.html), using MIREX reference parameters (http://www.isophonics.net/nnls-chroma)
+
+#### 
+A sample of this extraction can be found in the csv file joined with the submission.
